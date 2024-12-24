@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Controller
 @RequestMapping("/hello")
 public class HelloController {
@@ -26,6 +29,15 @@ public class HelloController {
     public String sayWelcome(Model model, @RequestParam(value = "name" , defaultValue = "Guest") String name){
         model.addAttribute("name" , name);
         return "welcome";
+    }
+
+    @GetMapping("/date")
+    public String getDate(Model model) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM, yyyy HH:mm:ss");
+        String formattedDate = now.format(dateTimeFormatter);
+        model.addAttribute("dateStr", formattedDate);
+        return "date";
     }
 
 }
