@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:object="${studentInsertDTO}">
+
+    <form action="" method="POST">
+
+        <div>
+                    <span>
+                        Insert Student
+                    </span>
+        </div>
+
+        <div>
+            <input type="text" name="firstname" placeholder="Name :" th:field="*{firstname}">
+        </div>
+
+        <div>
+            <input type="text" name="lastname" placeholder="Lastname :" th:field="*{lastname}">
+        </div>
+
+        <div>
+            <input type="text" name="department" placeholder="Department :" th:field="*{department}">
+        </div>
+
+        <div>
+            <input type="submit" value="Insert">
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
